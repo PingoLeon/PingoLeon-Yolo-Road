@@ -1,6 +1,0 @@
-train: ../speed_signs/train/images
-val: ../speed_signs/valid/images
-test: ../speed_signs/test/images
-
-nc: 1
-names: ['speed']
