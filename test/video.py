@@ -6,8 +6,12 @@ import logging
 # Configuration des logs
 logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
+#! Settings
+model_version_name = "yolo11n_grayscale_test"  # testv11_grayscale or testv11_color
+#!######################################################
+
 # Charger le modèle entraîné
-model = YOLO('./runs/detect/testv11/weights/best.pt')  # utilise le meilleur poids entraîné
+model = YOLO(f'runs/detect/{model_version_name}/weights/best.pt')  # utilise le meilleur poids entraîné
 
 # Configuration de la webcam
 cap = cv2.VideoCapture(0)  # 0 pour la webcam par défaut

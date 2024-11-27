@@ -1,4 +1,13 @@
+#ignore run results
 runs/
 labels.cache
+
+#All yolo models
 yolo11n.pt
-TestModel/
+yolo11s.pt
+yolo11m.pt
+yolo11l.pt
+yolo11x.pt
+
+#folder for test multiples images with a fine-tuned model
+dataset_test/
