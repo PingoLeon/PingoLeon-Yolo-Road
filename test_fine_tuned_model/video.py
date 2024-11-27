@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 # Charger le modèle entraîné
-model = YOLO('runs/detect/testv114/weights/best.pt')  # utilise le meilleur poids entraîné
+model = YOLO('./runs/detect/testv11/weights/best.pt')  # utilise le meilleur poids entraîné
 
 # Configuration de la webcam
 cap = cv2.VideoCapture(0)  # 0 pour la webcam par défaut
@@ -22,15 +22,9 @@ while True:
     ret, frame = cap.read()
     if not ret:
         break
-
-    # Convertir en niveaux de gris
-    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    
-    # Reconvertir en BGR pour la compatibilité avec YOLO
-    gray_frame_bgr = cv2.cvtColor(gray_frame, cv2.COLOR_GRAY2BGR)
     
     # Faire la prédiction
-    results = model.predict(source=gray_frame_bgr, conf=0.40)
+    results = model.predict(source=frame, conf=0.20)
     
     # Visualiser les résultats
     annotated_frame = results[0].plot()

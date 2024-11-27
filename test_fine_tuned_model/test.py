@@ -3,16 +3,19 @@ from ultralytics import YOLO
 import os
 import logging
 from pathlib import Path
+import shutil
 
 # Configuration des logs
 logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 def process_images():
     # Charger le modèle avec les meilleurs poids
-    model = YOLO('runs/detect/testv114/weights/best.pt')
+    model = YOLO('./runs/detect/testv11_grayscale/weights/best.pt')
     
     # Créer le dossier de sortie s'il n'existe pas
     output_dir = Path('TestModel/dataset_test_output')
+    if output_dir.exists() and output_dir.is_dir():
+        shutil.rmtree(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Parcourir les images dans le dossier d'entrée
@@ -23,11 +26,11 @@ def process_images():
             img = cv2.imread(str(img_path))
             
             # Convertir en niveaux de gris
-            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            gray_img_bgr = cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
             
             # Faire la prédiction
-            results = model.predict(source=gray_img_bgr, conf=0.40)
+            results = model.predict(source=img, conf=0.40)
             
             # Sauvegarder l'image annotée
             output_path = output_dir / img_path.name
