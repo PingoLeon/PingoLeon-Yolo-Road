@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 
 #! Settings
-model_version_name = "yolo11n_grayscale_test"  # testv11_grayscale or testv11_color
+model_version_name = "yolo11s_grayscale_test_"  # testv11_grayscale or testv11_color
 #!######################################################
 
 # Configuration des logs
