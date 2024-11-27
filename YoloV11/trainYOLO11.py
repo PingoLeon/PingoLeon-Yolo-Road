@@ -21,8 +21,8 @@ if __name__ == '__main__':
         data='YoloV11/data11.yaml',
         epochs=100,
         imgsz=640,
-        batch=8,
-        name='testv11',
+        batch=12,
+        name='testv11_color_resized',
         cache=True,
         device=device  # Spécifier le device CUDA
     )
