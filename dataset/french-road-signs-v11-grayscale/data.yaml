@@ -1,6 +1,6 @@
-train: ../train/images
-val: ../valid/images
-test: ../test/images
+train: ../../french-road-signs-v11-grayscale/train/images
+val: ../../french-road-signs-v11-grayscale/valid/images
+test: ../../french-road-signs-v11-grayscale/test/images
 
 nc: 26
 names: ['animal_danger', 'danger', 'direction', 'direction_forbidden', 'direction_obligation', 'end_forbidden', 'end_indication', 'end_speed', 'forbidden', 'indication', 'let_go', 'obligation', 'priority', 'radar', 'slope_danger', 'speed_110', 'speed_130', 'speed_20', 'speed_30', 'speed_40', 'speed_50', 'speed_60', 'speed_70', 'speed_80', 'speed_90', 'turn_danger']
