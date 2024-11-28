@@ -58,7 +58,7 @@ def process_images(model_version_name):
                     label = class_names[label_index]
                     text = f'{label}: {confidence:.2f}'
                     cv2.rectangle(img_color, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                    cv2.putText(img_color, text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                    cv2.putText(img_color, text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
             
             # Sauvegarder l'image annotée
             output_path = output_dir / img_path.name
@@ -66,6 +66,8 @@ def process_images(model_version_name):
             
             logging.info(f"Traité : {img_path.name}")
 
+
+#! Launch zone : modify the model_version_name variable to the desired model version name
 if __name__ == '__main__':
-    model_version_name = 'yolo11s_color_test_'  # Exemple de nom de version
+    model_version_name = 'yolo11s_grayscale_test_'  # version name : yolo11m_grayscale_test_ or yolo11s_color_test_ or yolo11s_grayscale_test_
     process_images(model_version_name)

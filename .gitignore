@@ -10,4 +10,4 @@ yolo11l.pt
 yolo11x.pt
 
 #folder for test multiples images with a fine-tuned model
-dataset_test/
+#dataset_test/
