@@ -1,77 +1,82 @@
 # YOLOroad
 
-This project aims to 
+This project aims to
 
-## Getting Started
+## Run & Test
 
-Clone the project on your machine
+#### Structure of the project :
 
-```
-git clone https://github.com/Alfred0404/Smart_Fridge_Project_Code.git
-```
+* train.py
+  * to launch a training set based on parameters
+* dataset folder
+  * Where 2 versions of the dataset is present, including image and labels
+  * one dataset is the grayscaled version of the first one, to consider performance differences
+* test folder
+  * Used to run scripts after the training
+    * video.py to launch the webcam and hold signs in front to try any fine-tuned model
+    * test.py to test the fine-tuned model on a whole folder (dataset_test) of images
 
-### Prerequisites
+#### Prerequisites
 
-[](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/README.md#prerequisites)
-
-You need [Python &gt;3.11](https://www.python.org/downloads/) and some dependencies:
-
-* [Flask](https://flask.palletsprojects.com/en/3.0.x/)
-* [Ollama](https://github.com/ollama/ollama-python)
-* [OpenCV](https://vovkos.github.io/doxyrest-showcase/opencv/sphinx_rtd_theme/index.html#)
-* [Ultralytics](https://docs.ultralytics.com/quickstart/#install-ultralytics)
-* [EasyOCR](https://pypi.org/project/easyocr/)
+Start by cloning the project on your machine
 
 ```
-pip install opencv-python ollama Flask ultralytics easyocr
+git clone https://github.com/PingoLeon/Yolo-Road.git
 ```
 
-## Training
+You will need a recent version of Python (like [3.12](https://www.python.org/downloads/release/python-3127/https://www.python.org/downloads/release/python-3127/ "Download Python")) with multiple dependencies :
 
-[](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/README.md#training)
+* Ultralytics
+* Torch
+* CUDA toolkit (If using Nvidia GPU)
 
-The model was trained using a [custom dataset](https://app.roboflow.com/fridgeinventorydetection/fridge_inventory_detection/1). Images come from our personnal fridge, and Google Image. Every image has been labeled by hand.
+  * try `nvcc --version` in a terminal to ensure that CUDA toolkit is installed
+  * also try running `torch.cuda.is_available()` to ensure it is available, and thus ensure maximum possible speed on your Nvidia GPU
 
-Here's some stats about the model so far:
-
-Confusion matrix normalized
-
-[![predictions on validation data](https://github.com/Alfred0404/Smart_Fridge_Project_Code/raw/computer_vision/runs/detect/train/confusion_matrix_normalized.png)](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/runs/detect/train/confusion_matrix_normalized.png)
-
-Global metrics
-
-[![predictions on validation data](https://github.com/Alfred0404/Smart_Fridge_Project_Code/raw/computer_vision/runs/detect/train/results.png)](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/runs/detect/train/results.png)
-
-Predictions on validation data
-
-[![predictions on validation data](https://github.com/Alfred0404/Smart_Fridge_Project_Code/raw/computer_vision/runs/detect/train/val_batch1_pred.jpg)](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/runs/detect/train/val_batch1_pred.jpg)
-
-It's only a first training test, which is very conclusive and reinforces the idea of continuing along this path. There is still a lot to do.
-
-### Cuda
-
-[](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/README.md#cuda)
-
-Cuda has accelerated the learning process, enabling tensorflow to use the Nvidia GPU to compute the learning data.
-
-* Install dependencies by generating your command [here](https://pytorch.org/get-started/locally/), you should get something like that: `pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
-* Check if cuda is properly downloaded
   ```python
   >>> import torch
   >>> torch.cuda.is_available()
   True
   ```
-* If you're struggling, this [stackoverflow discussion](https://stackoverflow.com/questions/57814535/assertionerror-torch-not-compiled-with-cuda-enabled-in-spite-upgrading-to-cud) helped get it to work.
 
-## Authors
+Versions used for this project :
 
-[](https://github.com/Alfred0404/Smart_Fridge_Project_Code/blob/computer_vision/README.md#authors)
+* Ultralytics 8.3.13
+* Torch 2.4.1+cu118 (checkout [this page](https://pytorch.org/get-started/locally/ "Pytorch download page") to get the install command corresponding your system requirements)
+* CUDA 11.8 (download [here](https://developer.nvidia.com/cuda-11-8-0-download-archive "Nvidia website"))
 
-* **Alfred de Vulpian** - [Alfred0404](https://github.com/Alfred0404)
-* **Clément d'Alberto** - [Clement-dl](https://github.com/https://github.com/Clement-dl)
-* **Alara Tanguy** - [AlTang01](https://github.com/AlTang01)
+```
+pip install ultralytics torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
 
-See the list of [contributors](https://github.com/Alfred0404/Smart_Fridge_Project_Code/contributors) who participated in this project.
+> [!WARNING]
+> You will need to run the scripts from the original repo folder reference, else the paths will be messed up
+
+Once you're done with all the requirements, just hit `python train.py` to start the training. Training parameters are in the beginning of the `train.py` file.
+
+For testing, place your test images in `test/test_images/dataset_test` folder to be able to run the `test/test.py` code
+
+## Performance metrics
+
+The original dataset was made by scraping online images from google images or other sources. The images may be protected by copyright. The labeling process was made on [Roboflow](https://universe.roboflow.com/image-understanding/panneaux-v2 "Dataset Labeled"), and dispatched on a basis : 97% train set / 3% valid set / 1% test. The valid test could be higher but since I didn't have many images I wanted to emphasize the accuracy of the training part.
+
+YOLO11 models for detection comes in multiple models :
+
+| Model   | Size (pixels) | mAPval 50-95 | Speed CPU ONNX (ms) | Speed T4 TensorRT10 (ms) | Params (M) | FLOPs (B) |
+| ------- | ------------- | ------------ | -------------------- | ------------------------ | ---------- | --------- |
+| YOLO11n | 640           | 39.5         | 56.1 ± 0.8          | 1.5 ± 0.0               | 2.6        | 6.5       |
+| YOLO11s | 640           | 47.0         | 90.0 ± 1.2          | 2.5 ± 0.0               | 9.4        | 21.5      |
+| YOLO11m | 640           | 51.5         | 183.2 ± 2.0         | 4.7 ± 0.1               | 20.1       | 68.0      |
+| YOLO11l | 640           | 53.4         | 238.6 ± 1.4         | 6.2 ± 0.1               | 25.3       | 86.9      |
+| YOLO11x | 640           | 54.7         | 462.8 ± 6.7         | 11.3 ± 0.2              | 56.9       | 194.9     |
+
+I ran multiple tests on a few lightweight models. Most of the tests were on nano, small and medium models, at 50 or 100 epochs per runs. For reference, the training ran on a RTX 3050Ti Laptop GPU, and the longest training took 6 hours on the medium model on 100 epochs. Going with models like large or x would have too much parameters for my GPU to handle, despite having a greater accuracy.
+
+Here is some performance comparisons based on the runs : 
+
+
+
+
 
 # References
 
@@ -94,3 +99,11 @@ The first run I made was with YOLOV11n, which is the smallest model with only 2.
 I then tried the YOLOV11s model, which is the second smallest model with 8.7M parameters. The curves were better, and so were the detections. The model was able to detect the signs, but it was still not perfect.
 
 Unfortunately, I made the choice to run the model on my own computer, with a 3050 Ti Laptop GPU, which is quite slow at a small rate of 50 epochs.
+
+| Modèle | Taille (pixels) | mAPval 50-95 | Vitesse CPU ONNX (ms) | Vitesse T4 TensorRT10 (ms) | Params (M) | FLOPs (B) |
+| ------- | --------------- | ------------ | --------------------- | -------------------------- | ---------- | --------- |
+| YOLO11n | 640             | 39.5         | 56.1 ± 0.8           | 1.5 ± 0.0                 | 2.6        | 6.5       |
+| YOLO11s | 640             | 47.0         | 90.0 ± 1.2           | 2.5 ± 0.0                 | 9.4        | 21.5      |
+| YOLO11m | 640             | 51.5         | 183.2 ± 2.0          | 4.7 ± 0.1                 | 20.1       | 68.0      |
+| YOLO11l | 640             | 53.4         | 238.6 ± 1.4          | 6.2 ± 0.1                 | 25.3       | 86.9      |
+| YOLO11x | 640             | 54.7         | 462.8 ± 6.7          | 11.3 ± 0.2                | 56.9       | 194.9     |

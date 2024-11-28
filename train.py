@@ -7,9 +7,9 @@ logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 #! Settings 
 model_name = "yolo11s" # yolo11n, yolo11s, yolo11m, yolo11l, yolo11x (after s version, training time increases significantly)
-dataset = "grayscale" # grayscale or color
+dataset = "color" # grayscale or color
 version = "test" # test, production, or whatever part of the process you're at
-epoch_number = 75 # number of epochs, the higher the better but the longer it takes
+epoch_number = 100 # number of epochs, the higher the better but the longer it takes
 batch_size = 8 # influence on the speed of the training and vram usage
 #!######################################################
 
