@@ -1,6 +1,8 @@
 # 👀🚗 YOLOroad - Training small vision models on road signs
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)![nVIDIA](https://img.shields.io/badge/cuda-000000.svg?style=for-the-badge&logo=nVIDIA&logoColor=green)
+
+
 This project aims to train a vision model on images of french traffic/road signs, to get a fine-tuned model capable of multiple signs recognition, particularly for the speed of the classification of a sign (information, danger or something forbidden).
 
 One goal would be to have a lightweight, efficient yet powerful vision model to integrate into an embedded system like car or RC Car. It could then be used to create a semi-autonomous systems capable of adapting the vehicle's behavior to the rules on the road.
