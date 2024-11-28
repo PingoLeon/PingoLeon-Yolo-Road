@@ -40,24 +40,24 @@ Here is some performance comparisons based on the runs :
 
 ###### YOLO11 small model, 100 epochs - grayscale dataset
 
-<figure style="text-align: left;">
+<figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
   <img src="runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" width="400"/>
 </figure>
 
-<figure style="text-align: left;">
+<figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
   <img src="runs/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
 </figure>
 
 ###### YOLO11 small model, 100 epochs - color dataset
 
-<figure style="text-align: left;">
+<figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
   <img src="runs/detect/yolo11s_color_test_/results.png" alt="global metrics" width="400"/>
 </figure>
 
-<figure style="text-align: left;">
+<figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
   <img src="runs/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
 </figure>
@@ -68,14 +68,14 @@ Furthermore, here is the results produced by the medium model :
 
 ###### YOLO11 medium model, 100 epochs - grayscale dataset
 
-<figure style="text-align: left;">
+<figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
-  <img src="runs/detect/yolo11m_grayscale_test_/results.png" alt="global metrics" width="400"/>
+  <img src="runs/detect/yolo11m_grayscale_test_/results.png" alt="global metrics" style="width: 80%; max-width: 800px;"/>
 </figure>
 
-<figure style="text-align: left;">
+<figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/yolo11m_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+  <img src="runs/detect/yolo11m_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 The medium model later revealed to be far more accurate on test scripts ran with the fine-tuned model.
