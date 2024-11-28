@@ -72,11 +72,39 @@ YOLO11 models for detection comes in multiple models :
 
 I ran multiple tests on a few lightweight models. Most of the tests were on nano, small and medium models, at 50 or 100 epochs per runs. For reference, the training ran on a RTX 3050Ti Laptop GPU, and the longest training took 6 hours on the medium model on 100 epochs. Going with models like large or x would have too much parameters for my GPU to handle, despite having a greater accuracy.
 
-Here is some performance comparisons based on the runs : 
+I first ran tests on the nano model, which is the most lightweight but has only 2.6M parameters, and thus making a lot of errors after the training.
 
+I then went on the small model, which provided greater accuracy while still making a good amount of errors in the recognition.
 
+I tried to run the medium model on 100 epochs, but it took a huge amount of time. However, having 20.1M parameters hugely improbed the accuracy.
 
+I choosed to make the dataset in 2 versions, one original and one grayscaled version. My impression is that the detection on a a grayscale basis has a greater accuracy on the color one since the model doesn't have to deal with 3 RGB channels informations, hence improving the detection of forms, like specific logos on signs or numbers.
 
+Here is some performance comparisons based on the runs :
+
+YOLO11 small model, 100 epochs - grayscale dataset
+
+<figure style="text-align: left;">
+  <p style="font-family: arial; margin: 0;">Confusion matrix normalized</p>
+  <img src="runs/detect/runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" width="400"/>
+</figure>
+
+<figure style="text-align: left;">
+  <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
+  <img src="runs/detect/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+</figure>
+
+YOLO11 small model, 100 epochs - color dataset
+
+<figure style="text-align: left;">
+  <p style="font-family: arial; margin: 0;">Confusion matrix normalized</p>
+  <img src="runs/detect/runs/detect/yolo11s_color_test_/results.png" alt="global metrics" width="400"/>
+</figure>
+
+<figure style="text-align: left;">
+  <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
+  <img src="runs/detect/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+</figure>
 
 # References
 
