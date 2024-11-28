@@ -42,7 +42,7 @@ Here is some performance comparisons based on the runs :
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
-  <img src="runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" width="400"/>
+  <img src="runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 <figure style="text-align: center;">
