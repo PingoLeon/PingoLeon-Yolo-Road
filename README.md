@@ -40,24 +40,24 @@ Here is some performance comparisons based on the runs :
 
 ###### YOLO11 small model, 100 epochs - grayscale dataset
 
-<figure style="text-align: center;">
+<figure style="align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
   <img src="runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" style="width: 80%; max-width: 800px;"/>
 </figure>
 
-<figure style="text-align: center;">
+<figure style="align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
   <img src="runs/detect/yolo11s_grayscale_test_/val_batch0_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 ###### YOLO11 small model, 100 epochs - color dataset
 
-<figure style="text-align: center;">
+<figure style="align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
   <img src="runs/detect/yolo11s_color_test_/results.png" alt="global metrics" style="width: 80%; max-width: 800px;"/>
 </figure>
 
-<figure style="text-align: center;">
+<figure style="align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
   <img src="runs/detect/yolo11s_color_test_/val_batch0_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
@@ -68,12 +68,12 @@ Furthermore, here is the results produced by the medium model :
 
 ###### YOLO11 medium model, 100 epochs - grayscale dataset
 
-<figure style="text-align: center;">
+<figure style="align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
   <img src="runs/detect/yolo11m_grayscale_test_/results.png" alt="global metrics" style="width: 80%; max-width: 800px;"/>
 </figure>
 
-<figure style="text-align: center;">
+<figure style="align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
   <img src="runs/detect/yolo11m_grayscale_test_/val_batch0_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
@@ -96,7 +96,7 @@ Enhance the quality of the dataset
 
 * More images, current ~1200 images, best would be at least 5000 or 10000
 * Less classes, some being irrelevant, or more images per classes, since I have classes with too few images in them for reference :
-<figure style="text-align: center;">
+<figure style="align: center;">
   <img src="runs\detect\yolo11m_grayscale_test_\labels.jpg" alt="predictions on validation data" width="400"/>
 </figure>
 Train on better GPUs and better vision models, for a larger span of time, like yolo11l or yolo11x
