@@ -2,6 +2,12 @@
 
 This project aims to
 
+I choosed YOLO models since they have a greater latency and accuracy than their older models, and are well supported on the web.
+
+<a href="https://docs.ultralytics.com/models/yolo11/" target="_blank">
+  <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/yolo/performance-comparison.png" alt="YOLO11 performance plots">
+</a>
+
 ## Run & Test
 
 #### Structure of the project :
@@ -62,13 +68,13 @@ The original dataset was made by scraping online images from google images or ot
 
 YOLO11 models for detection comes in multiple models :
 
-| Model   | Size (pixels) | mAPval 50-95 | Speed CPU ONNX (ms) | Speed T4 TensorRT10 (ms) | Params (M) | FLOPs (B) |
-| ------- | ------------- | ------------ | -------------------- | ------------------------ | ---------- | --------- |
-| YOLO11n | 640           | 39.5         | 56.1 ± 0.8          | 1.5 ± 0.0               | 2.6        | 6.5       |
-| YOLO11s | 640           | 47.0         | 90.0 ± 1.2          | 2.5 ± 0.0               | 9.4        | 21.5      |
-| YOLO11m | 640           | 51.5         | 183.2 ± 2.0         | 4.7 ± 0.1               | 20.1       | 68.0      |
-| YOLO11l | 640           | 53.4         | 238.6 ± 1.4         | 6.2 ± 0.1               | 25.3       | 86.9      |
-| YOLO11x | 640           | 54.7         | 462.8 ± 6.7         | 11.3 ± 0.2              | 56.9       | 194.9     |
+| Model                                                                                | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
+| ------------------------------------------------------------------------------------ | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+| [YOLO11n](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt) | 640                   | 39.5                 | 56.1 ± 0.8                     | 1.5 ± 0.0                           | 2.6                | 6.5               |
+| [YOLO11s](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt) | 640                   | 47.0                 | 90.0 ± 1.2                     | 2.5 ± 0.0                           | 9.4                | 21.5              |
+| [YOLO11m](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11m.pt) | 640                   | 51.5                 | 183.2 ± 2.0                    | 4.7 ± 0.1                           | 20.1               | 68.0              |
+| [YOLO11l](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11l.pt) | 640                   | 53.4                 | 238.6 ± 1.4                    | 6.2 ± 0.1                           | 25.3               | 86.9              |
+| [YOLO11x](https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11x.pt) | 640                   | 54.7                 | 462.8 ± 6.7                    | 11.3 ± 0.2                          | 56.9               | 194.9             |
 
 I ran multiple tests on a few lightweight models. Most of the tests were on nano, small and medium models, at 50 or 100 epochs per runs. For reference, the training ran on a RTX 3050Ti Laptop GPU, and the longest training took 6 hours on the medium model on 100 epochs. Going with models like large or x would have too much parameters for my GPU to handle, despite having a greater accuracy.
 
@@ -82,7 +88,7 @@ I choosed to make the dataset in 2 versions, one original and one grayscaled ver
 
 Here is some performance comparisons based on the runs :
 
-YOLO11 small model, 100 epochs - grayscale dataset
+###### YOLO11 small model, 100 epochs - grayscale dataset
 
 <figure style="text-align: left;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
@@ -91,10 +97,10 @@ YOLO11 small model, 100 epochs - grayscale dataset
 
 <figure style="text-align: left;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detectyolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+  <img src="runs/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
 </figure>
 
-YOLO11 small model, 100 epochs - color dataset
+###### YOLO11 small model, 100 epochs - color dataset
 
 <figure style="text-align: left;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
@@ -105,6 +111,25 @@ YOLO11 small model, 100 epochs - color dataset
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
   <img src="runs/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
 </figure>
+
+If we compare the 2 results curves, we can see that the color dataset has fuzzier precision and recall metrics curve, which could be a sign that the grayscale dataset produces more accurate results along the training, and could be more precise on a fine-tuned model.
+
+Furthermore, here is the results produced by the medium model :
+
+###### YOLO11 medium model, 100 epochs - grayscale dataset
+
+<figure style="text-align: left;">
+  <p style="font-family: arial; margin: 0;">Global metrics</p>
+  <img src="runs/detect/yolo11m_grayscale_test_/results.png" alt="global metrics" width="400"/>
+</figure>
+
+<figure style="text-align: left;">
+  <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
+  <img src="runs/detect/yolo11m_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+</figure>
+
+The medium model later revealed to be far more accurate on test scripts ran with the fine-tuned model
+
 
 # References
 
