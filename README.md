@@ -47,19 +47,19 @@ Here is some performance comparisons based on the runs :
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+  <img src="runs/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 ###### YOLO11 small model, 100 epochs - color dataset
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Global metrics</p>
-  <img src="runs/detect/yolo11s_color_test_/results.png" alt="global metrics" width="400"/>
+  <img src="runs/detect/yolo11s_color_test_/results.png" alt="global metrics" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+  <img src="runs/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 If we compare the 2 results curves, we can see that the color dataset has fuzzier precision and recall metrics curve, which could be a sign that the grayscale dataset produces more accurate results along the training, and could be more precise on a fine-tuned model.
