@@ -85,25 +85,25 @@ Here is some performance comparisons based on the runs :
 YOLO11 small model, 100 epochs - grayscale dataset
 
 <figure style="text-align: left;">
-  <p style="font-family: arial; margin: 0;">Confusion matrix normalized</p>
-  <img src="runs/detect/runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" width="400"/>
+  <p style="font-family: arial; margin: 0;">Global metrics</p>
+  <img src="runs/detect/yolo11s_grayscale_test_/results.png" alt="global metrics" width="400"/>
 </figure>
 
 <figure style="text-align: left;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+  <img src="runs/detectyolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
 </figure>
 
 YOLO11 small model, 100 epochs - color dataset
 
 <figure style="text-align: left;">
-  <p style="font-family: arial; margin: 0;">Confusion matrix normalized</p>
-  <img src="runs/detect/runs/detect/yolo11s_color_test_/results.png" alt="global metrics" width="400"/>
+  <p style="font-family: arial; margin: 0;">Global metrics</p>
+  <img src="runs/detect/yolo11s_color_test_/results.png" alt="global metrics" width="400"/>
 </figure>
 
 <figure style="text-align: left;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
+  <img src="runs/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" width="400"/>
 </figure>
 
 # References
