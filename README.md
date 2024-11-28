@@ -47,7 +47,7 @@ Here is some performance comparisons based on the runs :
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/yolo11s_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
+  <img src="runs/detect/yolo11s_grayscale_test_/val_batch0_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 ###### YOLO11 small model, 100 epochs - color dataset
@@ -59,7 +59,7 @@ Here is some performance comparisons based on the runs :
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/yolo11s_color_test_/val_batch1_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
+  <img src="runs/detect/yolo11s_color_test_/val_batch0_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
 If we compare the 2 results curves, we can see that the color dataset has fuzzier precision and recall metrics curve, which could be a sign that the grayscale dataset produces more accurate results along the training, and could be more precise on a fine-tuned model.
@@ -75,10 +75,10 @@ Furthermore, here is the results produced by the medium model :
 
 <figure style="text-align: center;">
   <p style="font-family: arial; margin: 0;">Predictions on validation data</p>
-  <img src="runs/detect/yolo11m_grayscale_test_/val_batch1_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
+  <img src="runs/detect/yolo11m_grayscale_test_/val_batch0_pred.jpg" alt="predictions on validation data" style="width: 80%; max-width: 800px;"/>
 </figure>
 
-The medium model later revealed to be far more accurate on test scripts ran with the fine-tuned model.
+The medium model later revealed to be far more accurate on test scripts ran with the fine-tuned model on a wide range of images.
 
 For example, this is some results that could be tested on the medium model :
 
@@ -96,8 +96,9 @@ Enhance the quality of the dataset
 
 * More images, current ~1200 images, best would be at least 5000 or 10000
 * Less classes, some being irrelevant, or more images per classes, since I have classes with too few images in them for reference :
-* <img src="runs\detect\yolo11m_grayscale_test_\labels.jpg" alt="predictions on validation data" width="400"/>
-
+<figure style="text-align: center;">
+  <img src="runs\detect\yolo11m_grayscale_test_\labels.jpg" alt="predictions on validation data" width="400"/>
+</figure>
 Train on better GPUs and better vision models, for a larger span of time, like yolo11l or yolo11x
 
 * More parameters, and more training time, hence more accuracy on the detection
@@ -108,9 +109,6 @@ Any help or contribution is appreciated, whether it's some better datasets, code
 
 # References
 
-> Ultralytics YOLO11 [Ultralytics source code](https://github.com/ultralytics/ultralytics.)
-> Roboflow [Roboflow website](https://roboflow.com/)
-> Pytorch [Pytorch website](https://pytorch.org/)
-> CUDA [CUDA website](https://developer.nvidia.com/cuda-zone)
+> Ultralytics YOLO11 [Ultralytics source code](https://github.com/ultralytics/ultralytics.) / Roboflow [Roboflow website](https://roboflow.com/) / Pytorch [Pytorch website](https://pytorch.org/) / CUDA [CUDA website](https://developer.nvidia.com/cuda-zone)
 
 ---
