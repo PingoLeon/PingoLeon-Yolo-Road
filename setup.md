@@ -42,12 +42,14 @@ Versions used for this project :
 * CUDA 11.8 (download [here](https://developer.nvidia.com/cuda-11-8-0-download-archive "Nvidia website"))
 
 ```
-pip install ultralytics torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install ultralytics torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 opencv-python pyyaml
 ```
+
+Additionals requirements : 
 
 > [!WARNING]
 > You will need to run the scripts from the original repo folder reference, else the paths will be messed up
 
 Once you're done with all the requirements, just hit `python train.py` to start the training. Training parameters are in the beginning of the `train.py` file.
 
-For testing, place your test images in `test/test_images/dataset_test` folder to be able to run the `test/test.py` code
+For testing, place your test images in `test/test_images/dataset_test` folder to be able to run the `test/test.py` code. you have to put the name of the run version yourself to choose which model you would like to test

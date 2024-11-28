@@ -2,7 +2,9 @@
 
 This project aims to train a vision model on images of french traffic/road signs, to get a fine-tuned model capable of multiple signs recognition, particularly for the speed of the classification of a sign (information, danger or something forbidden).
 
-I choosed YOLO models since they have a greater latency and accuracy than their older models, and are lightweight to run, giving options to run very small and less capable vision models.
+One goal would be to have a lightweight, efficient yet powerful vision model to integrate into an embedded system like car or RC Car. It could then be used to create a semi-autonomous systems capable of adapting the vehicle's behavior to the rules on the road.
+
+I choosed YOLO models since they have a greater latency and accuracy than their older models, and are lightweight to run, giving options to run very small and less capable vision models. Their documentation and support around the web is quite dense.
 
 <a href="https://docs.ultralytics.com/models/yolo11/" target="_blank">
   <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/yolo/performance-comparison.png" alt="YOLO11 performance plots">
@@ -30,7 +32,7 @@ I ran multiple tests on a few lightweight models. Most of the tests were on nano
 
 * I first ran tests on the nano model, which is the most lightweight but has only 2.6M parameters, and thus making a lot of errors after the training.
 * I then went on the small model, which provided greater accuracy while still making a good amount of errors in the recognition.
-* I tried to run the medium model on 100 epochs, but it took a huge amount of time. However, having 20.1M parameters hugely improbed the accuracy.
+* I tried to run the medium model on 100 epochs, but it took a huge amount of time. However, having 20.1M parameters hugely improved the accuracy.
 
 The choice has been made to make the dataset in 2 versions, one original and one grayscaled version. The detection on a a grayscale basis has a greater accuracy on the color one since the model doesn't have to deal with 3 RGB channels, hence improving the detection of forms, like specific logos on signs or numbers.
 
@@ -78,14 +80,13 @@ Furthermore, here is the results produced by the medium model :
 
 The medium model later revealed to be far more accurate on test scripts ran with the fine-tuned model.
 
-For example, this is some results that could be tested on the medium model : 
+For example, this is some results that could be tested on the medium model :
 
 <img src="test\test_images\some_good_result.png" alt="good results" width="400"/>
 
 Whereas this is some flaws that could be seen while testing the on the small model :
 
 <img src="test\test_images\some_bad_result.png" alt="bad results" width="400"/>
-
 
 ## Future work
 
