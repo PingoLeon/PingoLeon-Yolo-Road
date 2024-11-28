@@ -1,4 +1,4 @@
-# YOLOroad
+# YOLOroad - Training small vision models on road signs
 
 This project aims to train a vision model on images of french traffic/road signs, to get a fine-tuned model capable of multiple signs recognition, particularly for the speed of the classification of a sign (information, danger or something forbidden).
 
@@ -16,7 +16,7 @@ I choosed YOLO models since they have a greater latency and accuracy than their 
 
 ## Performance metrics
 
-The original dataset was made by scraping online images from google images or other sources. The images may be protected by copyright. The labeling process was made on [Roboflow](https://universe.roboflow.com/image-understanding/panneaux-v2 "Dataset Labeled"), and dispatched on a basis : 97% train set / 3% valid set / 1% test. The valid test could be higher but since I didn't have many images I wanted to emphasize the accuracy of the training part.
+[The original dataset](https://universe.roboflow.com/image-understanding/panneaux-v2https://universe.roboflow.com/image-understanding/panneaux-v2 "Link to the dataset !") was made by scraping online images from google images or other sources. The images may be protected by copyright. The labeling process was made on [Roboflow](https://universe.roboflow.com/image-understanding/panneaux-v2 "Dataset Labeled"), and dispatched on a basis : 97% train set / 3% valid set / 1% test. The valid test could be higher but since I didn't have many images I wanted to emphasize the accuracy of the training part.
 
 YOLO11 models for detection comes in multiple models :
 
@@ -96,6 +96,7 @@ Enhance the quality of the dataset
 
 * More images, current ~1200 images, best would be at least 5000 or 10000
 * Less classes, some being irrelevant, or more images per classes, since I have classes with too few images in them for reference :
+
 <figure style="align: center;">
   <img src="runs\detect\yolo11m_grayscale_test_\labels.jpg" alt="predictions on validation data" width="400"/>
 </figure>
@@ -109,6 +110,6 @@ Any help or contribution is appreciated, whether it's some better datasets, code
 
 # References
 
-> Ultralytics YOLO11 [Ultralytics source code](https://github.com/ultralytics/ultralytics.) / Roboflow [Roboflow website](https://roboflow.com/) / Pytorch [Pytorch website](https://pytorch.org/) / CUDA [CUDA website](https://developer.nvidia.com/cuda-zone)
+> Ultralytics YOLO11 [Github](https://github.com/ultralytics/ultralytics.) / Roboflow [Website](https://roboflow.com/ "Roboflow website") / Pytorch [Website](https://pytorch.org/ "Pytorch website") / CUDA [Website](https://developer.nvidia.com/cuda-zone "CUDA ZONE")
 
 ---
